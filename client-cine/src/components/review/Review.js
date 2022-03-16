@@ -1,4 +1,5 @@
-import React, { useState, useDispatch } from "react"
+import React, { useState } from "react"
+import {useDispatch} from "react-redux"
 import { postReview } from "../../actions"
 
 const Review = () => {
@@ -18,6 +19,7 @@ const Review = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        console.log({ comentario, puntuación })
         dispatch(postReview({ comentario, puntuación }))
     }
 
