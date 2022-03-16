@@ -1,6 +1,9 @@
-import React, { useState } from "react"
+import React, { useState, useDispatch } from "react"
+import { postReview } from "../../actions"
 
 const Review = () => {
+
+    const dispatch = useDispatch()
 
     const [input, setInput] = useState()
     const [score, setScore] = useState()
@@ -16,6 +19,7 @@ const Review = () => {
     const handleSubmit = (e)=>{
         e.preventDefault()
         console.log({input, score})
+        dispatch(postReview({input, score}))
         // aca se debe hacer un post con el nombre, score y review
     }
     

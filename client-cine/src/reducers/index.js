@@ -8,7 +8,6 @@ const actionsObj = {
     err: payload
   }),
   [POST_REVIEW]: (state, payload)=>{
-    //aca viene la logica
     return {
       ...state
     }
