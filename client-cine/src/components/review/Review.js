@@ -16,7 +16,7 @@ const Review = () => {
     const handleSubmit = (e)=>{
         e.preventDefault()
         console.log({input, score})
-        // aca se debe hacer un post con el username, score y review
+        // aca se debe hacer un post con el nombre, score y review
     }
     
     return (
