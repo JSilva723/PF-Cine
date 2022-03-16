@@ -1,5 +1,6 @@
 import { Service } from '../utils/service'
 import { REQUEST_FAILED, POST_REVIEW } from './types'
+import axios from "axios"
 
 const api = new Service()
 
@@ -35,7 +36,7 @@ const api = new Service()
 
 export const postReview = (payload) => {
     return async dispatch => {
-        const json = await axios.post("/ruta que todavia no existe", payload)
+        const json = await axios.post("/localhost:3001/comentarios", payload)
         return dispatch({
             type: POST_REVIEW,
             payload: json

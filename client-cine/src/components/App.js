@@ -4,11 +4,13 @@ import Review from './review/Review.js'
 
 export const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/review' element={<Review />} />
-      </Routes>
-    </Router>
+    <BrowserRouter>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/review' element={<Review />} />
+        </Routes>
+      </Router>
+    </BrowserRouter>
   )
 }

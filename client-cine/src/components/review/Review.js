@@ -5,24 +5,22 @@ const Review = () => {
 
     const dispatch = useDispatch()
 
-    const [input, setInput] = useState()
-    const [score, setScore] = useState()
+    const [comentario, setComentario] = useState()
+    const [puntuación, setPuntuación] = useState()
 
     const onChange = (e) => {
-        setInput(e.target.value)
+        setComentario(e.target.value)
     }
 
     const onClick = number => {
-        setScore(number)
+        setPuntuación(number)
     }
 
-    const handleSubmit = (e)=>{
+    const handleSubmit = (e) => {
         e.preventDefault()
-        console.log({input, score})
-        dispatch(postReview({input, score}))
-        // aca se debe hacer un post con el nombre, score y review
+        dispatch(postReview({ comentario, puntuación }))
     }
-    
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -30,11 +28,11 @@ const Review = () => {
                 <span>¿Cuántas estrellas le das a esta pelicula?</span>
                 <span>(Selecciona de 1 a 5 estrellas en tu respuesta, siendo 1 la peor valoración y 5 la mejor).</span>
                 <div>
-                    <span onClick={()=>onClick(1)}>★</span>
-                    <span onClick={()=>onClick(2)}>★</span>
-                    <span onClick={()=>onClick(3)}>★</span>
-                    <span onClick={()=>onClick(4)}>★</span>
-                    <span onClick={()=>onClick(5)}>★</span>
+                    <span onClick={() => onClick(1)}>★</span>
+                    <span onClick={() => onClick(2)}>★</span>
+                    <span onClick={() => onClick(3)}>★</span>
+                    <span onClick={() => onClick(4)}>★</span>
+                    <span onClick={() => onClick(5)}>★</span>
                 </div>
                 <div>
                     <h4>¡Cuéntanos que te pareció la pelicula!</h4>
