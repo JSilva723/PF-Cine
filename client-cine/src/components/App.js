@@ -1,6 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import { Home } from './home/Home.js'
-import Review from './review/Review.js'
+import Review from './review/Review.jsx'
 
 export const App = () => {
   return (
