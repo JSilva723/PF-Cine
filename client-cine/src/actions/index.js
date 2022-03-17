@@ -1,5 +1,5 @@
 import { Service } from '../utils/service'
-import { REQUEST_FAILED, POST_REVIEW } from './types'
+import { REQUEST_FAILED, POST_REVIEW, GET_REVIEW } from './types'
 import axios from "axios"
 
 const api = new Service()
@@ -40,6 +40,16 @@ export const postReview = (payload) => {
         return dispatch({
             type: POST_REVIEW,
             payload: json
+        })
+    }
+}
+
+export function getAllReview() {
+    return async function (dispatch) {
+        const json = await axios.get("/localhost:3001/comentarios")
+        return dispatch({
+            type: GET_REVIEW,
+            payload: json.data
         })
     }
 }
