@@ -2,7 +2,7 @@ import React from "react"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { getAllReview } from "../../actions";
-
+import styles from "./ReviewToShow.module.css"
 
 const ReviewToShow = () => {
     // const [] = useState();

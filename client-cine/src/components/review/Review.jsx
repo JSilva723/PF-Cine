@@ -1,6 +1,7 @@
 import React, { useState } from "react"
-import {useDispatch} from "react-redux"
+import { useDispatch } from "react-redux"
 import { postReview } from "../../actions"
+import styles from "./Review.module.css"
 
 const Review = () => {
 
@@ -29,7 +30,7 @@ const Review = () => {
                 <h3>Tu opinión nos importa, ¡Evalúa esta pelicula!</h3>
                 <span>¿Cuántas estrellas le das a esta pelicula?</span>
                 <span>(Selecciona de 1 a 5 estrellas en tu respuesta, siendo 1 la peor valoración y 5 la mejor).</span>
-                <div>
+                <div className={styles.estrellasBox}>
                     <span onClick={() => onClick(1)}>★</span>
                     <span onClick={() => onClick(2)}>★</span>
                     <span onClick={() => onClick(3)}>★</span>
