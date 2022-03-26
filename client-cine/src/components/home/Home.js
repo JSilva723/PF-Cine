@@ -1,7 +1,7 @@
 import { Search } from "../SearchBar/Search.jsx";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import NavBar from "../Navbar/navbar.jsx";
+import NavBar from "./Navbar/navbar.jsx";
 import "./Home.css"
 import Swal from "sweetalert2";
 import { useAuth } from "../../contexts/AuthContext";

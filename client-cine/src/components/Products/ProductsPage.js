@@ -3,7 +3,7 @@ import "./ProductsPage.css"
 import {
     AllProducts
 } from "../../store/actions";
-import NavBar from "../Navbar/navbar.jsx";
+import NavBar from "../home/Navbar/navbar";
 
 import { useSelector, useDispatch } from "react-redux";
 
