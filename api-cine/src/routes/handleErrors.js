@@ -9,7 +9,7 @@ const ERRORS = {
     res.status(406).json(err)
   },
   SequelizeDatabaseError: (res, err) => {
-    res.status(406).json({[err.name]: err.errors[0].message})
+    res.status(406).json({[err.name]: err})
   },
   SequelizeValidationError: (res, err) => {
     res.status(406).json({ValidationError: err.message.slice(18)})

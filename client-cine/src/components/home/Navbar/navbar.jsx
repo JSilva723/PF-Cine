@@ -9,11 +9,6 @@ import {Navbar,Container,Nav,NavDropdown,Button,Image} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './navbar.css'
 
-
-
-
-
-
 export default function NavBar(){
 
   const { user, currentUser } = useAuth();

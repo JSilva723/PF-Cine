@@ -10,8 +10,6 @@ class Formulario extends Component {
             lastName: "",
             email: "",
             password: "",
-
-
         }
         this.handleSubmit=this.handleSubmit.bind(this)
     }

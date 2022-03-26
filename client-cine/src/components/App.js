@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import CreateActor from "./CreateActor/CreateActor.jsx";
 import CreateGenre from "./CreateGenre/CreateGenre.jsx";
@@ -12,8 +12,6 @@ import SobreNosotros from "./SobreNosotros/SobreNosotros.js";
 import Review from "./Review/Review.jsx";
 import ShoppingCart from "./ShoppingCart/ShoppingCart.jsx";
 import ProductsPage from "./Products/ProductsPage"
-
-//Changes
 import { AuthProvider } from "../contexts/AuthContext";
 import Signup from "./Signup";
 import Dashboard from "./Dashboard";
@@ -22,32 +20,15 @@ import PrivateRoute from "./PrivateRoute";
 import PrivateUpdate from "./PrivateUpdate";
 import ForgotPassword from "./ForgotPassword";
 import UpdateProfile from "./UpdateProfile";
-
 import ReviewToShow from "./ReviewToShow/ReviewToShow.jsx";
-
 import Admin from "./AdminPanel/Admin.jsx";
-import { useDispatch } from "react-redux";
-
-import {
-  AllMovies,
-  GetAllGenres,
-  GetAllCast,
-  FiltrarGenero,
-  FiltrarCast,
-  FiltrarGeneroYCast,
-} from "./../store/actions";
 
 
 export const App = () => {
-
-
   return (
     <Router>
-
       <AuthProvider>
         <Routes>
-           /*Rutas agregadas*/
-
            <Route
              exact
              path="/dash"
@@ -68,7 +49,6 @@ export const App = () => {
                </PrivateUpdate>
              }
            />
-           /*Rutas agregadas*/ /*Rutas privadas*/
            <Route
              path="/admin"
              element={
@@ -113,7 +93,6 @@ export const App = () => {
               </PrivateRoute>
             }
           />
-           /*Rutas privadas*/
           <Route path="/" element={<Home />} />
           <Route path="/productpage" element={<ProductsPage />} />
           <Route path="/review/:id" element={<Review />} />
@@ -125,9 +104,5 @@ export const App = () => {
         </Routes>
       </AuthProvider>
     </Router>
-
-
   );
 };
-
-

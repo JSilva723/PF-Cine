@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import MapView from "../mapView/MapView.js";
+import MapView from "./mapView/MapView.js";
 import "./SobreNosotros.css"
 
 const SobreNosotros = () => {
