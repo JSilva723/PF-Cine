@@ -1,16 +1,17 @@
-import React ,{useEffect}from "react";
+import React, { useEffect } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import CreateActor from "./CreateActor/CreateActor.jsx";
 import CreateGenre from "./CreateGenre/CreateGenre.jsx";
 import CreateMovies from "./CreateMovies/CreateMovies.js";
+import CreateProduct from "./CreateProduct/CreateProduct.jsx";
 import DetailsMovies from "./Details/DetailsMovies";
+import ProductDetail from "./Products/ProductDetail";
 import Home from "./home/Home.js";
 import { Profile } from "./profile/Profile.js";
 import SobreNosotros from "./SobreNosotros/SobreNosotros.js";
 import Review from "./Review/Review.jsx";
 import ShoppingCart from "./ShoppingCart/ShoppingCart.jsx";
-
-
+import ProductsPage from "./Products/ProductsPage"
 
 //Changes
 import { AuthProvider } from "../contexts/AuthContext";
@@ -23,8 +24,10 @@ import ForgotPassword from "./ForgotPassword";
 import UpdateProfile from "./UpdateProfile";
 
 import ReviewToShow from "./ReviewToShow/ReviewToShow.jsx";
-import Admin from './AdminPanel/Admin.jsx';
-import {useDispatch} from 'react-redux'
+
+import Admin from "./AdminPanel/Admin.jsx";
+import { useDispatch } from "react-redux";
+
 import {
   AllMovies,
   GetAllGenres,
@@ -34,19 +37,24 @@ import {
   FiltrarGeneroYCast,
 } from "./../store/actions";
 
+
 export const App = () => {
-   return (      
-     <Router>
-       <AuthProvider>
-         <Routes>
+
+
+  return (
+    <Router>
+
+      <AuthProvider>
+        <Routes>
            /*Rutas agregadas*/
+
            <Route
              exact
              path="/dash"
              element={
-               <PrivateRoute component={Dashboard}>
+               <PrivateUpdate component={Dashboard} rol={'user'}>
                  <Dashboard />
-               </PrivateRoute>
+               </PrivateUpdate>
              }
            />
            <Route path="/signup" element={<Signup />} />
@@ -55,7 +63,7 @@ export const App = () => {
            <Route
              path="/update-profile"
              element={
-               <PrivateUpdate>
+               <PrivateUpdate component={UpdateProfile}>
                  <UpdateProfile />
                </PrivateUpdate>
              }
@@ -64,7 +72,7 @@ export const App = () => {
            <Route
              path="/admin"
              element={
-     <PrivateRoute component={Admin}>
+     <PrivateRoute component={Admin} rol={'admin'}>
                  
                  <Admin />
       </PrivateRoute>
@@ -73,7 +81,7 @@ export const App = () => {
            <Route
              path="/admin/createmovies"
              element={
-        <PrivateRoute component={CreateMovies}>
+        <PrivateRoute component={CreateMovies} rol={'admin'}>
                  <CreateMovies />
            </PrivateRoute>
              }
@@ -82,7 +90,7 @@ export const App = () => {
              path="/admin/createactor"
              element={
              
-               <PrivateRoute component={CreateActor}>
+               <PrivateRoute component={CreateActor} rol={'admin'}>
                  <CreateActor />
              </PrivateRoute>
              }
@@ -91,21 +99,35 @@ export const App = () => {
              path="/admin/creategenero"
              element={
           
-               <PrivateRoute component={CreateGenre }>
+               <PrivateRoute component={CreateGenre } rol={'admin'}>
                  <CreateGenre />
+
               </PrivateRoute>
-             }
-           />
+            }
+          />
+            <Route
+             path="/admin/createproducto"
+             element={
+              <PrivateRoute component={CreateProduct}>
+                <CreateProduct />
+              </PrivateRoute>
+            }
+          />
            /*Rutas privadas*/
-           <Route path="/" element={<Home />} />
-           <Route path="/review" element={<Review />} />
-           <Route path="/MovieDetails/:id" element={<DetailsMovies />} />
-           <Route path="/shoppingcart" element={<ShoppingCart />} />
-           <Route path="/about" element={<SobreNosotros />} />
-           <Route path="/portal" element={<Profile />} />
-         </Routes>
-       </AuthProvider>
-     </Router>
-   );
- };
+          <Route path="/" element={<Home />} />
+          <Route path="/productpage" element={<ProductsPage />} />
+          <Route path="/review/:id" element={<Review />} />
+          <Route path="/MovieDetails/:id" element={<DetailsMovies />} />
+          <Route path="/productpage/Products/:id" element={<ProductDetail />} />
+          <Route path="/shoppingcart" element={<ShoppingCart />} />
+          <Route path="/about" element={<SobreNosotros />} />
+          <Route path="/portal" element={<Profile />} />
+        </Routes>
+      </AuthProvider>
+    </Router>
+
+
+  );
+};
+
 
